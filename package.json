@@ -1,0 +1,22 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.*",
+    "jade": "*",
+    "consolidate": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "hbs": "*",
+    "bcrypt-nodejs": "*",
+    "mysql2": "*",
+    "nodemailer": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "monk": "*"
+  }
+}

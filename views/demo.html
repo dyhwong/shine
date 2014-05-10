@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Shine</title>
+  <link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/gamepage.css"/>
+  <script type="text/javascript" src="scripts/adapter.js"></script> 
+  <script type="text/javascript" src="scripts/demo.js"></script>
+  <script src="scripts/jquery-2.0.2.min.js"></script>
+</head>
+
+<body style="background-color:#003E5F;">
+ <div id ='instructions'>
+          <div class = 'instructions' id = "tInstructions" style = "display:block;">
+				<ul>
+                         <li><h2>how to play:</h2></li>
+                         <li><h4>before you begin:</h4></li>
+                         <li>-make sure you're using chrome</li>
+                         <li>-have a white light source ready (i.e. flashlight or smartphone flash)</li>
+                         <li><h3>playing the game:<h3></li>
+						 <li>-after you hit play, allow the page access to your webcam</li>
+						 <li>-light yellow dots will appear on your screen</li>
+						 <li>-shine your light at these dots to score points! </li>
+				</ul>
+        </div>
+</div>
+      
+  <button id = "start_button" onClick = "initShiny()" style = "margin-left: 10px;"> Start Game </button>
+  <video id="video" style = "height: 0;"></video>
+  <canvas id="shiny" style = "height: 0;"></canvas>
+  <div id = "scoreUpdates"> score </div>
+  <canvas id = "video_canvas"> </canvas>
+  <button id = "backToHomepage" onclick="window.location.href='/homepage'" style = "margin-top: -80px; margin-left: 10px;"> back to homepage </button>
+
+</body>
+</html>

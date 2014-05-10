@@ -1,0 +1,132 @@
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+nav {
+	height: 50px;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	min-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #002E5F;
+	font-family: 'Delius Swash Caps', sans-serif;
+/*	-webkit-box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4);*/
+	z-index: 10;	
+}
+
+nav .header {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+nav .navlogo:hover{
+	cursor: hand;
+}
+
+nav ul ul {
+	display: none;				/*hides the nested list when not hovered over*/
+	background: #002E5F; 		/*background color of hidden list*/
+	padding: 0px; 				/*padding between My Username and Settings and Accounts*/
+	/*position: absolute;			overlay menus over divs*/
+	text-align: center;			/*centers Settings and Accounts in their tabs*/
+	top: 100%;
+	z-index: 10;
+}
+	nav ul li:hover > ul {
+		display: block;			/*shows the menu when My Username is hovered over*/
+	}
+
+nav ul {
+	margin-top: 0px;			/*distance between My Username and menu*/
+	list-style: none;			/*removes bullet points*/
+	display: inline;			/*Location and My Username floats right*/
+}
+			
+nav ul li {
+	float: right;				/*keeps everything on the right side*/
+	background-color: #002E5F;
+	text-align: center;
+}		
+
+nav ul li:first-child {
+	margin-right: 12.5%;
+}
+	
+	nav ul li:hover {
+		background-color: #004384; 	/*background color of menu when hovered over*/
+/*	    box-shadow: 0 5px 15px 0 rgba(247, 249, 50, 0.5);*/
+	                color: #F7F972;
+            border-radius: 6px;
+    }
+
+    	nav ul li a:hover {
+    		color: #F7F950;
+    		cursor: pointer;
+    	}
+
+	nav ul li a {
+		display: inline-block;	/*makes sure Location and My Username are low enough*/
+		padding: 10px 20px;		/*makes sure Location and My Username are in correct location*/
+		color: white;			/*retains color of Location and My Username*/
+		text-decoration: none;	/*removes underlines*/
+		font-size: 24px;
+		text-align: center;
+	}
+
+	nav ul ul li {
+		float: none;			/*drop-down feature*/
+		border-top: 1px solid black;  /*add black border to menu*/
+		border-bottom: 0px solid black;
+		position: relative;		/*ensures the menu items appear*/
+        width: 100%;
+	}
+
+        nav ul ul li:active{
+            background: #1693C5;
+            color: #F7F972;
+        }
+
+        nav ul ul li:hover{
+            background: #1693C5;
+/*            box-shadow: 0 3px 5px 0 rgba(247, 249, 50, 0.5);*/
+
+        }
+
+
+		nav ul ul li a {
+			font-size: 14px;	/*font size of menu item*/
+			color: #fff;		/*color of menu item text*/
+		}
+
+			nav ul ul li a:hover {
+				
+			}
+
+.navlogo {
+	display: inline;
+	float: left;
+	height: 50px;
+	margin-left: 12.5%;
+}
+
+#registerTab {
+	margin-right: 12.5%;
+}
+
+#loginTab {
+	margin-right: 12.5%;
+}
+
+#registerTab a {
+	font-size: 24px;
+}
+
+#loginTab a {
+	font-size: 24px;
+}

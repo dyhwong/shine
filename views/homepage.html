@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Shine Home</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/login.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/createaccount.css"/>
+		<link href='//fonts.googleapis.com/css?family=Neucha:300,400' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Share|Open+Sans|Lobster|Dosis|Delius+Swash+Caps|Andika' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/navbar.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/homepage.css"/>
+	    <script type="text/javascript" src="scripts/adapter.js"></script> 
+		<script type="text/javascript" src="scripts/demo.js"></script>
+		<script src="scripts/jquery-2.0.2.min.js"></script>
+		<script src = "scripts/homepage.js"></script>
+	</head>
+
+	<body>
+		<div id="top-shadow"></div>
+		<nav>
+            <div class='header'>
+				<div class='navlogo'>
+					<img src="images/shine.png", height=50px>
+				</div>
+				<ul>
+					{{#if register}}
+					<li id='loginTab'><a onclick = "window.location.href = '/login'">login</a>
+					</li>
+					{{/if}}
+					{{#if login}}
+					<li id='registerTab'><a onclick = "window.location.href = '/register'">register</a>
+					</li>
+					{{/if}}
+				</ul>
+            </div>
+        </nav>
+		<div class='gallery'>
+            <img id ='background' src="./images/backgrounds6.png">
+		<div class='pagetop'>	 
+			<div class = 'description'>
+			    <div id='motto'>it's your time to <span id = "shinetext">shine</span></div>
+			      <p>experience a unique, browser-based motion fitness game</p><input type='button' value='learn more' id='tryIt' class='fancyButton'>
+			</div>
+			 
+                {{#if login}}
+				   <form  method="post" action="/login">
+						<div class="container fade">
+							{{# if error}}
+							<h1 class='error'>invalid login</h1>
+							{{/if}}
+							<div class="loginform">
+
+                                    <div class = "loginTable"><table>
+											<tr>
+                                                <!-- <td>username</td> -->
+                                                <td><input type="text" class="username" name="username" placeholder ="username"></td>
+											</tr>
+                                        
+											<tr>
+                                                 <!-- <td>password</td> -->
+                                                 <td><input type="password" name="password" placeholder = "password"></td>
+											</tr>
+                                    </table></div>
+                                <input type="submit" value="log in" class = 'fancyButton' id = "login">
+
+                    </div>
+					</div>
+				 </form>  
+				{{/if}}				 
+			
+			{{#if register}}
+            <div id='signup' class = 'fade'>
+			        {{#if error}}
+					   <h1 class = 'error'>{{message}}</h1>
+					{{/if}}
+					<div id = "regform">
+                    <form name='adduser' action="/adduser" method="post">
+                        <div class="form_field">
+                            <input type="text" id="username" name="username" value="" class="text-field" placeholder="pick a username"/>
+                        </div>
+                        <div class="form_field">
+                            <input type="password" id="password" name="password" value="" class="text-field" placeholder="create a password"/>
+                        </div>
+                        <div class="form_field">
+                            <input type="password" id="confirm" name="confirm" value="" class="text-field" placeholder="confirm your password"/>
+                        </div>
+                        <div class='form_field'>
+                            <input type='submit' value='create account' id='submit' class = 'fancyButton'>
+                        </div>
+                    </form>
+                	</div>
+            </div>
+		    {{/if}}
+        </div>
+        </div>
+<!--         <div id = "stage1"> -->
+		<div class = 'panelScreen' id = 'howToPlay'>
+<!-- 			<div id = "howitworks"> how it works </div> -->
+			<div class = 'panel 1' id = 'webcam'>
+				<img class = 'icon' src="images/webcam2.png">
+				<p>webcam tracks light motion</p>
+			</div>
+			
+			<div class = 'panel 2' id = 'flashlight'>
+				<img class = 'icon' src="images/flashlight2.png">
+				<p>hit targets with a flashlight</p>
+			</div>
+			
+			<div class = 'panel 3' id = 'shine'>
+				<img class = 'icon' src="images/star2.png">
+				<p>have fun and get active</p>
+			</div> 
+			<input id = 'demo' type='button' value='demo now' class='fancyButton' style="height:50px; width:150px; font-size: 28px;" onClick = "showDemo()">
+		</div> 
+<!-- 		</div> -->
+		<div class = 'demoShine' id='demoShine'>
+		  <div class='demoPanel'>
+		    <img id = 'webcam-icon' src="images/webcam2.png">
+			<img id = 'star-icon' src="images/star2.png">
+			<img id = 'flashlight-icon' src="images/flashlight2.png">
+		  </div>
+			<video id="video" style = "height: 0;"></video>
+			<canvas id="shiny" style = "height: 0;"></canvas>
+			<div id = "scoreUpdates"> score </div>
+			<canvas id = "video_canvas"> </canvas>
+		</div>
+		
+		<div id = 'about'>
+			<div class = 'aboutSection 1'>
+				<h3>fun fitness</h3>
+				<p>shine is a rhythm-motion game that uses your webcam to locate motion.</p>
+			</div>
+			<div class = 'aboutSection 2'>
+				<h3>flexible fitness</h3>
+				<p>all you need is a browser and a flashlight. no need for expensive workout machinery.</p>
+			</div>
+			<div class = 'aboutSection 3'>
+				<h3>personal fitness</h3>
+				<p>customize games to your own musical taste and follow your progress over time.</p>
+			</div>
+			<div class='getStarted'> 
+
+				 <p>are you ready to shine?</p>
+				 <div id='getStartedButton'><input type='button' value='get started now &#8594' class='fancyButton' id='getStarted'></div>
+			</div>
+		</div>
+		
+		<div class = 'footer'>
+			<ul>
+				<li>inspired by <span onClick = "location.href = 'https://github.com/poofytoo/Lightboard'" style = "font-color: white; text-decoration: none; cursor: pointer;">lightboard.js</span>  --  contact: shinethegame@mit.edu</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>

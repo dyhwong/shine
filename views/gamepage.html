@@ -1,0 +1,141 @@
+<html>
+<head>
+  <title>Shine</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/navbar.css"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/gamepage.css"/>
+  <link href='//fonts.googleapis.com/css?family=Neucha|Delius+Swash+Caps' rel='stylesheet' type='text/css'>
+
+  <script src="scripts/jquery-2.0.2.min.js"></script>
+  <script type="text/javascript" src="scripts/adapter.js"></script> 
+  <script type="text/javascript" src="scripts/shine.js"></script>
+</head>
+
+  <div id="top-shadow"></div>
+  <nav>
+    <div class='header'>
+    <div class='navlogo'>
+      <a href='/'>
+      <img src="images/shine.png", height=50px>
+      </a>
+    </div>
+    <ul>
+      <li><a href='/logout'>logout</a></li>
+      <li><a href='/settings'>{{name}}'s account</a></li>
+    </ul>
+    </div>
+  </nav>
+
+<body>
+  <div id = "stage1">
+  <div id ='instructions'>
+    <div class = 'instructions' id = "tInstructions">
+      <ul>
+         <li><div class = "iconContainer">
+        <img id = "webcam2" class = "icon" src = "/images/webcam2.png">
+          <img id = "flashlight2" class = "icon" src = "/images/flashlight2.png">
+          <img id = "star2" class = "icon" src = "/images/star2.png">
+      </div></li>
+         <li><h1>how to play</h1></li>
+         <li><h2>before you begin</h2></li>
+         <li>- make sure you're using <span><a href = "http://www.google.com/chrome" target = "_blank" style = "text-decoration: none; color: inherit"> <b>google chrome</b></a></span> </li>
+         <li>- have a <b>white light</b> ready (i.e. flashlight or smartphone flash)</li>
+         <li>- dim or turn off your room lights</li>
+         <li>- try to stand about three feet away from your screen</li>
+         <li><h2>playing the game</h2></li>
+				 <li>- after you hit play, <b>allow the webpage access to your webcam</b></li>
+				 <li>- <b>hit yellow stars</b> to score points</li>
+         <li>- <b>avoid blue orbs</b>; they will decrease your shinyness</li>
+         <li>- if your shinyness decreases to zero, it's game over! </li> 
+         <input type = 'button' id = "start_button_center" onClick = "showGame('demo')" class = 'fancyButton' value = 'play!'>
+
+      </ul>
+    </div>
+  </div>
+  
+  <div id = "menuButtons">    
+    <input type = 'button' id = "sInstructions" class = 'fancyButton' value = 'how to play'>
+    <input type = 'button' id = "start_button" onClick = "showGame('demo')" class = 'fancyButton' value = 'play'>
+    <input type = 'button' id = "play_again" style = "display:none;" onClick = "showGame(current_selection)" class = 'fancyButton' value = 'play again'>
+    <input type = 'button' id = "quitButton" style = "display:none;" onClick = "quitGame()" class = 'fancyButton' value = 'quit song'>
+    <div class = "nowPlayingDisplay">
+      <ul id = "middlePlaying">
+        <li>now playing:</li>
+        <li id = "songTitle"><b> Demo </b></li>
+        <li id = "artistName"> (Heaven Rd. 2) Envy</li>
+      </ul>
+    </div>
+    <input type = 'button' id = "showSongs" onClick = "showSongList()" class = 'fancyButton' value = 'choose song'>
+    <input type = 'button' id = "hideSongs" onClick = "hideSongList()" class = 'fancyButton' value = 'hide songs' style = "display:none;">
+    <div id = "gameNavContainer">
+      <div id ="gameNavButtonContainer">
+      <div id = "soundFXbuttons">
+        <div id = "soundFXToggleOff" onClick = "muteSoundFX()" img src = "/images/fxicon.png">fx <br><br><br><br> off</div>
+        <div id = "soundFXToggleOn" onClick = "playSoundFX()" img src = '/images/nofxicon.png'> fx<br><br><br><br>on</div>
+      </div>
+    <div id = "playPause">
+      <div id = "pauseGame" onClick = "pauseGame()" img src = '/images/pausebutton.png'>pause</div>
+      <div id = "resumeGame" onClick = "resumeGame()" img src ='/images/playsymbol.png'>resume</div>
+    </div>
+    <div id = "bgmbuttons">
+      <div id = "bgmToggleOff" onClick = "muteBGM()" img src = '/images/bgmicon.png'>mute <br><br><br><br>music</div>
+      <div id = "bgmToggleOn" onClick = "playBGM()" img src = '/images/nobgmicon.png'>play <br><br><br><br>music</div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div id = "songListDisplay" style = "display: none;">
+    <ul id = "setList">
+      <li><h2 id ="setHeader" onClick = "showSet()">set list</h2></li>
+      <div id = "songNames">
+      <li id = "song0" class = "songName" onClick = "showGame('demo')"> Demo [Heaven Rd. 2 <span class = "artist"> Envy</span>] <br><span class = "songDetails"> (0:27; 151 bpm) </span></li>
+      <li id = "song1" class = "songName" onClick = "showGame('ChineseDanceMachine')"> Chinese Dance Machine <span class = "artist">F777 </span><br><span class = "songDetails"> (1:16; 140 bpm) </span></li>
+      <li id = "song2" class = "songName" onClick = "showGame('Endurance')"> Endurance <span class = "artist">Envy </span><br><span class = "songDetails"> (2:31; 143 bpm) </span></li>
+      <li id = "song3" class = "songName" onClick = "showGame('Eternity')"> Eternity <span class = "artist">Prof. Adm. Bacon </span><br><span class = "songDetails"> (6:08; 145 bpm) </span></li>
+      <li id = "song4" class = "songName" onClick = "showGame('Firefrost')"> Firefrost <span class = "artist">Envy </span><br><span class = "songDetails"> (4:18; 129 bpm) </span></li>
+      <li id = "song5" class = "songName" onClick = "showGame('GenericDreams')"> Generic Dreams <span class = "artist">Steven-Polley</span><br><span class = "songDetails"> (3:53; 141 bpm) </span></li>
+      <li id = "song6" class = "songName" onClick = "showGame('HeavenRd2')"> Heaven Rd. 2 <span class = "artist">Envy </span><br><span class = "songDetails"> (3:13; 151 bpm) </span></li>
+      <li id = "song7" class = "songName" onClick = "showGame('HyperioxX')"> HyperioxX <span class = "artist">ParagonX </span><br><span class = "songDetails"> (3:17; 180 bpm) </span></li>
+      <li id = "song8" class = "songName" onClick = "showGame('Infertehno')"> Infertehno <span class = "artist">Shinrog </span><br><span class = "songDetails"> (3:04; 147 bpm) </span></li>
+      <li id = "song9" class = "songName" onClick = "showGame('LoveLife')"> Love Life <span class = "artist">xXBullDozerXx </span><br><span class = "songDetails"> (1:27; 110 bpm) </span></li>
+      <li id = "song10" class = "songName" onClick = "showGame('PartyCrashers')"> Party Crashers <span class = "artist">Sour Jovis </span><br><span class = "songDetails"> (2:54; 136 bpm) </span></li>
+    </div>
+    </ul>
+    <ul id = "customList">
+      <li><h2 id = "customHeader"onClick = "showCustom()">customize</h2></li>
+      <div id = "customizeTexts">
+      <li class = "customizeText"> favorite song not listed? no problem! input how long and how fast your want your game, start the audio yourself, and shine on </li>
+      <br>
+      <li class = "customizeText"> <span class = "inputTitle">song length </span><br> <input type = "number" id = "songLengthInputMinutes" placeholder = "minutes"> 
+      <br><input type = "number" id = "songLengthInputSeconds" placeholder = "seconds"></li>
+      <li class = "customizeText"> <span class = "inputTitle"> song speed in BPM <span> <span id = "needHelpBPM" onClick = "showBPMHelp()"> (need help?) </span><span id = "hideHelpBPM" onClick = "hideBPMHelp()"> (hide help) </span> <br><input type = "number" id = "songBPMInput" placeholder = "BPM"></li><br>
+      <li class = "customizeText" id = "BPMHelp"> BPM (beats per minute) is a measure of the speed of a musical work. <br> try using <span><a class = "outsideLink" href = "http://songbpm.com" target = "_blank"> song bpm </a></span> to look up songs or <span><a class = "outsideLink" href = "http://www.all8.com/tools/bpm.htm" target = "_blank"> All 8 </a></span> to tap the beat manually. </li><br>
+      <li class = "customizeText"> if you don't want to enter values, that's ok too. just start your audio and click "start custom game". we'll use our default settings. </li> 
+      <li class = "customizeText"><input type = 'button' id = "createCustomGame" onClick = "showCustomGame()" class = 'fancyButton' value = 'start custom game'> </li>
+      </div>
+    </ul>
+  </div> 
+  </div> 
+  <div id = "shineContainer">
+  <div class = 'playShine' id='playShine'>
+    <video id="video" style = "height: 0;"></video>
+    <canvas id="shiny" style = "height: 0;"></canvas>
+    <div id = "updateStatus"> <div id = "shinynessUpdates"><span id = "shinyLeft">shinyness:</span> </div> <div id = "shinyContainer"><img class = "shinyness" id = "shinyness0" src = "/images/shinyness.png"><img class = "shinyness" id = "shinyness1" src = "/images/shinyness.png"><img class = "shinyness" id = "shinyness2" src = "/images/shinyness.png"></div><div id = "scoreBox"><span id = "scoreUpdates"> score: 0 </span></div></div>
+
+    <canvas id = "video_canvas"> </canvas>
+
+    <div id = "disclaimer"> Songs used under the <a href = "http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode" id = "license">Creative Commons License</a></div>
+  </div>    
+  <div id = "stage3">
+  <div id = "endGameScreen">
+    <div id = "gameOverText"><span id = "gameOverReason">filler text</span><br><span id = "gameOverReasonTLDR">filler text</span><br><span id = "gameOverStinger">filler text</span></div>
+    <br>
+    <br>
+    <div id = "finalScore"> final score: <span id = "finalScoreValue"></span></div>
+    <br>
+    <br>
+    <div id = "finalButtons"> <input type = 'button' id = "gameOverRestart" onClick = "showGame(current_selection)" class = 'fancyButton' value = 'try again'><input type = 'button' id = "endGameChange" onClick = "showSongList()" class = 'fancyButton' value = 'change song'><input type = 'button' id = "gameOverViewScores" onClick = "location.href = '/settings'" class = 'fancyButton' value = 'view past scores'></div>
+  </div> 
+  </div> 
+</body>
+</html>
