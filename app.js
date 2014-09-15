@@ -13,17 +13,17 @@ var mongoose = require('mongoose');
 var mongo = require('mongodb');
 var monk = require('monk');
 var user = require('./routes/user');
-var db = monk('localhost:27017/shine');
+var db = monk('localhost:27017/shine_v2');
 var User = require('./models/user-model');
 
-var connStr = 'mongodb://localhost:27017/shine';
+var connStr = 'mongodb://localhost:27017/shine_v2';
 mongoose.connect(connStr, function(err) {
     if (err) throw err;
     console.log('Successfully connected to MongoDB');
 });
 
 // all environments
-
+var port = process.env.PORT || 80;
 app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
@@ -112,6 +112,6 @@ app.get('/graphtimes', function(req, res) {
 		res.send(user.dailyTimes);
 	});
 });
-
-app.listen(80);
-console.log('Running server at 80');
+console.log(port)
+app.listen(port);
+console.log('Running server at '+port);
