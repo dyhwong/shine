@@ -13,10 +13,10 @@ var mongoose = require('mongoose');
 var mongo = require('mongodb');
 var monk = require('monk');
 var user = require('./routes/user');
-var db = monk('localhost:27017/shine_v2');
+var db = monk('18.111.79.104:27017/shine_v2');
 var User = require('./models/user-model');
 
-var connStr = 'mongodb://localhost:27017/shine_v2';
+var connStr = 'mongodb://18.111.79.104:27017/shine_v2';
 mongoose.connect(connStr, function(err) {
     if (err) throw err;
     console.log('Successfully connected to MongoDB');
